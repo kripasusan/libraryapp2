@@ -1,0 +1,82 @@
+<div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h1>
+                    {{title}}
+                        <p class="lead"></p>
+                </h1>
+            </div>
+            <div class="col-md-5">
+                <div class="well well-lg">“Some books leave us free and some books make us free.” – Ralph Waldo
+                    Emerson
+                    <div class="row">
+                        <div class="col-sm-12">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /cont -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top-spacer"> </div>
+            </div>
+        </div>
+    </div><!-- /cont -->
+
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="panel">
+                <div class="panel-body">
+                    <!-- enctype="multipart/form-data"> -->
+                    <div class="row">
+                        <div class="signup-form">
+                            <form (ngSubmit)="AddBook()" method="POST" enctype="multipart/form-data">
+                                <h2>Add Book</h2>
+                                <p class="hint-text">Add a book by filling in required details</p>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="title" [(ngModel)]="book.title" placeholder="Title"
+                                        required="true">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="author" [(ngModel)]="book.author" placeholder="Author"
+                                        required="true">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="genre" [(ngModel)]="book.genre" placeholder="Genre"
+                                        required="true">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="description" [(ngModel)]="book.description" 
+                                        placeholder="Description" required="true">
+                                </div>
+                                <p>Upload Image</p>
+                                <div class="form-group">
+                                    <input type="file" id="image" name="image" accept="image/*" [(ngModel)]="book.image" required="true">
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">Add
+                                        New</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
