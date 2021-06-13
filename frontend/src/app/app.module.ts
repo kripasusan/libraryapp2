@@ -53,8 +53,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
   providers: [MainDataServiceService, AuthService, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
-    multi: true
+    multi: true,
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

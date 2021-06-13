@@ -9,9 +9,9 @@ import { MainDataServiceService } from '../main-data-service.service';
   styleUrls: ['./edit-books.component.css']
 })
 export class EditBooksComponent implements OnInit {
+  title : String = "Edit Book";
 
   constructor(private bookService: MainDataServiceService, private router : Router){}
-  title : String = "Edit Book";
   book = new BookModel('','','','','');
 
   ngOnInit(): void {
@@ -23,10 +23,10 @@ export class EditBooksComponent implements OnInit {
   EditBook(){    
     this.bookService.editBook(this.book);   
     //alert("Success");
-    this.router.navigate(['books']);
+    this.router.navigate(['/books']);
   }
   CancelUpdate(){    
-    this.router.navigate(['books']);
+    this.router.navigate(['/books']);
   }
  
 

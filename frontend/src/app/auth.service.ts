@@ -5,23 +5,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-
-constructor(private http: HttpClient) { }
-
+  
 loginUser(user:any){
   return this.http.post<any>("http://localhost:3000/login",user);
 
 }
-  
-  
+constructor(private http: HttpClient) { }
+
   rolesVerify(){
-    let admin = sessionStorage.getItem("UserEmail");
-    if(admin === 'admin@gmail.com'){
+    let admin = sessionStorage.getItem("user");
+    if(admin == 'admin@gmail.com'){
       return true;
     }
-    else{
-      return false;
-    }
+    
 
   }
 
@@ -33,6 +29,5 @@ loginUser(user:any){
   getToken(){
     return localStorage.getItem('token');
   }
-
 }
 

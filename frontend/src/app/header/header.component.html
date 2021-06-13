@@ -14,26 +14,32 @@
       <nav class="collapse navbar-collapse" role="navigation">
         <ul class="nav navbar-nav">
           <li>
-            <a routerLink="/home">Home</a>
+            <a routerLink="login" *ngIf="!_auth.loggedIn()">Login</a>
           </li>
           <li>
-            <a routerLink="/books">Books</a>
+            <a routerLink="signup" *ngIf="!_auth.loggedIn()">Signup</a>
           </li>
           <li>
-            <a routerLink="/authors">Authors</a>
+            <a routerLink="books" *ngIf="_auth.loggedIn()">Books</a>
           </li>
           <li>
-            <a routerLink="/addbooks">Add Book</a>
+            <a routerLink="authors" *ngIf="_auth.loggedIn()">Authors</a>
+          </li>
+          
+          <li>
+            <a
+              routerLink="addbooks"
+              *ngIf="_auth.loggedIn() && _auth.rolesVerify()"
+              >Add Books</a>
           </li>
           <li>
-            <a routerLink="/addauthors">Add Author</a>
+            <a
+              routerLink="addauthors"
+              *ngIf="_auth.loggedIn() && _auth.rolesVerify()"
+              >Add Authors</a>
           </li>
-          <li>
-            <a routerLink="/login">Login</a>
-          </li>
-          <li>
-            <a routerLink="/signup">Sign Up</a>
-          </li>
+  
+          <li><a (click)="logoutUser()" *ngIf="_auth.loggedIn()">Logout</a></li>
         </ul>
         <ul class="nav navbar-right navbar-nav">
           <li class="dropdown">

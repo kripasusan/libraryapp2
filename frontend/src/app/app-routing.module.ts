@@ -27,7 +27,7 @@ const routes: Routes = [
   {path:'delete-books', component: DeleteBooksComponent},
   {path:'delete-authors', component: DeleteAuthorsComponent},
   {path:'addbooks', canActivate:[AuthGuard], component: AddbooksComponent},
-  {path:'addauthors', canActivate:[AuthGuard], component: AddauthorsComponent},
+  {path:'addauthors', canActivate:[AuthGuard],component: AddauthorsComponent},
   {path:"login", component: LoginComponent},
   {path:"signup", component: SignupComponent}
 

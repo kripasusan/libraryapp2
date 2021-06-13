@@ -63,9 +63,9 @@
                                     <input type="text" class="form-control" name="description" [(ngModel)]="book.description" 
                                         placeholder="Description" required="true">
                                 </div>
-                                <p>Upload Image</p>
+                                <p>Upload Image URL</p>
                                 <div class="form-group">
-                                    <input type="file" id="image" name="image" accept="image/*" [(ngModel)]="book.image" required="true">
+                                    <input type="text" id="image" name="image" style="width: 250px" [(ngModel)]="book.image" required="true">
                                 </div>
 
                                 <div class="form-group">

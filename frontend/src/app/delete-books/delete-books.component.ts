@@ -18,6 +18,6 @@ export class DeleteBooksComponent implements OnInit {
   DeleteBook(){ 
     this.bookService.deleteBook(this.book);
     //alert('Success');
-    this.router.navigate(['books']);
+    this.router.navigate(['/books']);
   }
 }

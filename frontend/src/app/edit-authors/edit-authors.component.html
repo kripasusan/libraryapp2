@@ -51,7 +51,7 @@
                         <form (ngSubmit)="EditAuthor()" method="POST">
                             <div class="col-md-10 col-sm-9">
                                 <h3>
-                                    Name: <input style="background: transparent;border: none; height: 100%;width: 100%;" value={{author.name}} [(ngModel)]="author.name" name="name">
+                                    Name: <input style="background: transparent;border: none; height: 100%;width: 100%;" value={{author.aname}} [(ngModel)]="author.aname" name="name">
                                 </h3>
                                 <div class="row">
                                     <div class="col-xs-9">
@@ -73,7 +73,7 @@
                                                 </p>
                                             </small>
                                         </h4>
-                                        <input type="file" id="myfile" name="avatar" accept="image/*" value={{author.image}} [(ngModel)]="author.image">
+                                        <input type="text" id="myfile" name="avatar" style="width: 250px" value={{author.image}} [(ngModel)]="author.image">
                                         <button type="submit"
                                             class="btn btn-success btn-lg btn-block">Update</button>
                                         <br>

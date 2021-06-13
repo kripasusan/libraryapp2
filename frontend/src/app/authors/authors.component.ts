@@ -19,8 +19,8 @@ export class AuthorsComponent implements OnInit {
 
   ngOnInit(): void {
     this.authorService.getAuthorData()
-    .subscribe((author)=>{
-      this.adata = JSON.parse(JSON.stringify(author));
+    .subscribe((data)=>{
+      this.adata = JSON.parse(JSON.stringify(data));
     })
   }
 
@@ -34,11 +34,11 @@ export class AuthorsComponent implements OnInit {
 
   EditAuthor(author:any){
     localStorage.setItem("editAuthorId", author._id.toString());
-    this.router.navigate(['edit-authors']);
+    this.router.navigate(['/edit-authors']);
   }
 
   ReadAuthor(author:any){
     localStorage.setItem("readAuthorId", author._id.toString());
-    this.router.navigate(['author']);
+    this.router.navigate(['/author']);
   }
 }

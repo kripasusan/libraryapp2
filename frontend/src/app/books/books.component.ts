@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {BookModel} from './book.model';
 import { MainDataServiceService } from '../main-data-service.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-books',
@@ -15,12 +16,12 @@ export class BooksComponent implements OnInit {
 
   bdata : BookModel[] = [];
 
-  constructor(private bookService : MainDataServiceService,private router : Router) { }
+  constructor(private bookService : MainDataServiceService,private router : Router, public authService : AuthService) { }
 
   ngOnInit(): void {
     this.bookService.getBookData()
-   .subscribe((book)=>{
-      this.bdata = JSON.parse(JSON.stringify(book));
+   .subscribe((data)=>{
+      this.bdata = JSON.parse(JSON.stringify(data));
    })
   }
 
@@ -34,12 +35,12 @@ export class BooksComponent implements OnInit {
 
   EditBook(book:any){
     localStorage.setItem("editBookId", book._id.toString());
-    this.router.navigate(['edit-books']);
+    this.router.navigate(['/edit-books']);
   }
 
   ReadBook(book:any){
     localStorage.setItem("readBookId", book._id.toString());
-    this.router.navigate(['book']);
+    this.router.navigate(['/book']);
   }
 
 }

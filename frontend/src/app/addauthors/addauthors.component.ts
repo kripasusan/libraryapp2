@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { AuthorModel } from '../authors/author.model';
 import { MainDataServiceService } from '../main-data-service.service';
 
@@ -10,9 +11,9 @@ import { MainDataServiceService } from '../main-data-service.service';
   styleUrls: ['./addauthors.component.css']
 })
 export class AddauthorsComponent implements OnInit {
-
-  constructor(private authorService : MainDataServiceService, private router: Router) {}
   title: String = "Add Authors";
+
+  constructor(private authorService : MainDataServiceService, private router: Router, private authService: AuthService) {}
   author = new AuthorModel('','','','','');
   ngOnInit(): void {
   }
@@ -20,7 +21,7 @@ export class AddauthorsComponent implements OnInit {
   AddAuthor(){
     this.authorService.newAuthor(this.author);
     // alert("Success!");
-    this.router.navigate(['authors']);
+    this.router.navigate(['/authors']);
   }
 
 }

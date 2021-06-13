@@ -9,10 +9,11 @@ import { MainDataServiceService } from '../main-data-service.service';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-
-  constructor(private bookService: MainDataServiceService, private router : Router) { }
   title : String = "Book";
   book = new BookModel('','','','','');
+  
+  constructor(private bookService: MainDataServiceService, private router : Router) { }
+  
   ngOnInit(): void {
     let rbookId = localStorage.getItem('readBookId');
     this.bookService.getBook(rbookId).subscribe((data) => {

@@ -3,6 +3,7 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { UserModel } from '../signup/user.model';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,19 +11,19 @@ import { UserModel } from '../signup/user.model';
 })
 export class LoginComponent implements OnInit {
   title : String = "Login";
-  user = new UserModel('','','','');
+ user = new UserModel('','','','');
   constructor(private _authService: AuthService, private _router: Router) { }
   
   ngOnInit(): void {
   }
-  
+  //user:any
   loginUser(){
-    // localStorage.setItem("email", this.user.email);
+    localStorage.setItem("UserEmail", this.user.email);
     this._authService.loginUser(this.user)
-    .subscribe(res=>{
+    .subscribe((res)=>{
       localStorage.setItem('token', res.token);
-      // sessionStorage.setItem("user", this.user.email);
-      this._router.navigate(['/']);
+      sessionStorage.setItem("user", this.user.email);
+      this._router.navigate(['/books']);
     }
     );
   }

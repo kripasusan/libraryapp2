@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
-  title : String = "Delete Header";
+  title : String  = "Library App"
+  constructor(public _auth: AuthService, private _router: Router) { }
   ngOnInit(): void {
+  }
+
+  logoutUser(){
+    localStorage.removeItem('token');
+    this._router.navigate(['/']);
   }
 
 }

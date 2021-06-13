@@ -18,6 +18,6 @@ export class DeleteAuthorsComponent implements OnInit {
   DeleteAuthor(){ 
     this.authorService.deleteAuthor(this.author);
     //alert('Success');
-    this.router.navigate(['authors']);
+    this.router.navigate(['/authors']);
   }
 }

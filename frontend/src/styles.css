@@ -11,6 +11,7 @@ body {
   padding-top:50px;
   color:#646464;
   background-color:#efefef;
+  min-height: 650px;
 }
 
 h1,h2,h3,.highlight,.navbar a,#masthead h4 {
@@ -146,7 +147,7 @@ a,a:hover {
 
 .panel .lead {
   overflow:hidden;
-  height:90px;
+  height:640px;
 }
 
 .label-float{

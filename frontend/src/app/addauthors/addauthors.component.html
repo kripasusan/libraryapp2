@@ -43,12 +43,12 @@
                     <!-- enctype="multipart/form-data"> -->
                     <div class="row">
                         <div class="signup-form">
-                            <form (ngSubmit)="  AddAuthor()" method="POST" enctype="multipart/form-data">
+                            <form (ngSubmit)="AddAuthor()" method="POST" enctype="multipart/form-data">
                                 <h2>Add Author</h2>
                                 <p class="hint-text">Add an author by filling in required details</p>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="name" [(ngModel)]="author.name" placeholder="Name"
+                                    <input type="text" class="form-control" name="name" [(ngModel)]="author.aname" placeholder="Name"
                                         required="true">
                                 </div>
                                 <div class="form-group">
@@ -63,9 +63,9 @@
                                     <input type="text" class="form-control" name="description" [(ngModel)]="author.description"
                                         placeholder="Description" required="true">
                                 </div>
-                                <p>Upload Image</p>
+                                <p>Upload Image URL</p>
                                 <div class="form-group">
-                                    <input type="file" id="image" name="image" accept="image/*" [(ngModel)]="author.image" required="true">
+                                    <input type="text" id="image" name="image" style="width: 250px" [(ngModel)]="author.image" required="true">
                                 </div>
 
                                 <div class="form-group">
@@ -80,7 +80,9 @@
         </div>
     </div>
 </div> 
+<hr />
 
+<hr />
 
 
 

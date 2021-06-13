@@ -49,36 +49,51 @@
 
                     <div class="row">
                         <div class="signup-form">
-                            <form action="/user/signup" method="POST">
+                            <form (ngSubmit)="userVerify()" #userlogin="ngForm" method="POST">
                                 <h2>Register</h2>
                                 <p class="hint-text">Create your account. It's free!</p>
                                 <div class="form-group">
 
                                     <div class="col"><input type="text" class="form-control" name="fname"
-                                            placeholder="First Name" required="required"></div><br>
+                                            placeholder="First Name" required="required" [(ngModel)]="user.fname"></div><br>
                                     <div class="col"><input type="text" class="form-control" name="lname"
-                                            placeholder="Last Name"></div>
+                                            placeholder="Last Name" [(ngModel)]="user.lname"></div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Email"
+                
+                                    <input type="email" class="form-control" name="email" #email="ngModel" placeholder="Email" [class.is-invalid]="email.invalid && email.touched"
+                                    [(ngModel)]="user.email"
+                                    pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}"
                                         required="required">
+                                    
+                                        <small
+                                            class="text-danger"
+                                            [class.d-none]="email.valid || email.touched"
+                                            >Enter valid email</small
+                                        >
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" name="password"
-                                        placeholder="Password" required="required">
+                                        placeholder="Password" [class.is-invalid]="password.invalid && password.touched" #password="ngModel"
+                                        [(ngModel)]="user.password" minlength="6" required="required">
+                                        <small
+                                        class="text-danger"
+                                        [class.d-none]="password.valid || password.touched"
+                                        >Enter password of minimum length 6</small
+                                      >
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-check-label"><input type="checkbox" required="required"> I
+                                    <!-- <label class="form-check-label"><input type="checkbox" required="required"> I
                                         accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy
-                                            Policy</a></label>
+                                            Policy</a></label> -->
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-lg btn-block">Register
+                                    <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="userlogin.form.invalid">Register
                                         Now</button>
                                 </div>
                             </form>
-                            <div class="text-center">Already have an account? <a href="login">Log in</a></div>
-                        </div>
+                            <!-- <div class="text-center">Already have an account? <a routerlink href="login">Log in</a></div>
+                        </div> -->
 
                     </div>
                     <hr>
